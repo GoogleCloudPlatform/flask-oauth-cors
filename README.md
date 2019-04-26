@@ -4,7 +4,7 @@ _Please note: This is not an officially supported Google product._
 
 If you are using OAuth to authenticate to a [Cloud Function written in Python](https://cloud.google.com/functions/docs/concepts/python-runtime) and hosted on GCP, and your client is running in a browser, this is for you. If not, you probably won't find this useful.
 
-This class does two things:
+This class does three things:
 
 * Responds correctly and configurably to the HTTP OPTIONS method used by browsers to do pre-flight checks as part of CORS
 * Retrieves an OAuth2 token supplied in the `Authorization` HTTP header, validates it, and then fetches the information encoded by the token
