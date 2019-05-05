@@ -1,0 +1,5 @@
+setuptools
+wheel
+twine
+google-auth
+google-api-python-client

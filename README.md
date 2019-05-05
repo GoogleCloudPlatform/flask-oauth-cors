@@ -10,6 +10,14 @@ This class does three things:
 * Retrieves an OAuth2 token supplied in the `Authorization` HTTP header, validates it, and then fetches the information encoded by the token
 * Gives you back either a valid token, or a response to send back to the user in case a valid token can't be found
 
+## Installation
+
+You can install the latest version of this package using pip:
+
+`python3 -m pip install --user gcloud-flask-oauth-cors`
+
+It's hosted on pypi: https://pypi.org/project/gcloud-flask-oauth-cors/
+
 ## Use
 
 If you don't have one, [create an OAuth client ID](https://developers.google.com/identity/protocols/OAuth2WebServer) and [pass it as an environment variable](https://cloud.google.com/functions/docs/env-var) to your cloud function. Then, you can use the following: 
