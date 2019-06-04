@@ -48,5 +48,5 @@ On the client side, you can use [Google Sign-in](https://developers.google.com/i
 
 ```js
 let xhr = new XMLHttpRequest();
-xhr.setRequestHeader('Authorization', 'Bearer ${id_token}');
+xhr.setRequestHeader('Authorization', `Bearer ${id_token}`);
 ```
