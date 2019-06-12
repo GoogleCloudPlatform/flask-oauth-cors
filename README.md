@@ -1,10 +1,12 @@
-# A small class that helps with authentication and CORS for HTTP-triggered cloud functions written in Python and hosted on GCP
+# Flask OAuth CORS [![PyPI version](https://badge.fury.io/py/gcloud-flask-oauth-cors.svg)](https://badge.fury.io/py/gcloud-flask-oauth-cors)
+
+> A small class that helps with authentication and CORS for HTTP-triggered cloud functions written in Python and hosted on GCP.
 
 _Please note: This is not an officially supported Google product._
 
 If you are using OAuth to authenticate to a [Cloud Function written in Python](https://cloud.google.com/functions/docs/concepts/python-runtime) and hosted on GCP, and your client is running in a browser, this is for you. If not, you probably won't find this useful.
 
-This class does three things:
+## Features
 
 * Responds correctly and configurably to the HTTP OPTIONS method used by browsers to do pre-flight checks as part of CORS
 * Retrieves an OAuth2 token supplied in the `Authorization` HTTP header, validates it, and then fetches the information encoded by the token
@@ -12,17 +14,22 @@ This class does three things:
 
 ## Installation
 
-You can install the latest version of this package using pip:
+Install using pip:
 
-`python3 -m pip install --user gcloud-flask-oauth-cors`
-
-It's hosted on pypi: https://pypi.org/project/gcloud-flask-oauth-cors/
-
-## Use
-
-If you don't have one, [create an OAuth client ID](https://developers.google.com/identity/protocols/OAuth2WebServer) and [pass it as an environment variable](https://cloud.google.com/functions/docs/env-var) to your cloud function. Then, you can use the following: 
-
+```sh
+python3 -m pip install --user gcloud-flask-oauth-cors
 ```
+
+## Usage
+
+To use this package:
+
+- [Create an OAuth client ID](https://developers.google.com/identity/protocols/OAuth2WebServer).
+- [Pass the OAuth client ID as an environment variable](https://cloud.google.com/functions/docs/env-var) to your cloud function.
+
+Then, you can use the following: 
+
+```py
 import gcloud_flask_oauth_cors as oauth
 
 def my_function_name(request):
@@ -39,7 +46,7 @@ def my_function_name(request):
 
 On the client side, you can use [Google Sign-in](https://developers.google.com/identity/sign-in/web/). Make sure you pass your `id_token` in any requests like this:
 
-```
+```js
 let xhr = new XMLHttpRequest();
-xhr.setRequestHeader("Authorization", "Bearer " + id_token);
+xhr.setRequestHeader('Authorization', `Bearer ${id_token}`);
 ```
